@@ -20,6 +20,19 @@ const Board = ({ alchemicals }) => {
 
 	const [contents, setContents] = useState(emptyContent);
 
+	const checkCombinations = (x, y, type, sign) => {
+		setContents([
+			...contents.map((col, i) => {
+				if (i !== x - 1 && i !== y - 1)
+					return col.map((cell, j) => ["not dis" + j]);
+				return col.map((cell, j) => {
+					return ["dis" + j];
+				});
+			}),
+		]);
+		console.log(contents);
+	};
+
 	const potionOnBlur = (e, x, y) => {
 		const content = e.target.textContent;
 		const type =
@@ -38,7 +51,20 @@ const Board = ({ alchemicals }) => {
 			: content.includes("-")
 			? -1
 			: 1;
-		console.log(e.target.textContent, " ", x, ", ", y, " ", type, " ", sign);
+
+		checkCombinations(x, y, type, sign);
+
+		console.log(
+			e.target.textContent,
+			" ",
+			x,
+			", ",
+			y,
+			" ",
+			type,
+			" ",
+			sign
+		);
 	};
 
 	return (
