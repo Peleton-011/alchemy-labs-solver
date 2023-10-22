@@ -21,13 +21,26 @@ const Board = ({ alchemicals }) => {
 	const [contents, setContents] = useState(emptyContent);
 
 	const checkCombinations = (x, y, type, sign) => {
+		const col1 = contents[x - 1];
+		const col2 = contents[y - 1];
+
+		//Filter by sign
+		if (type === "red" || type === "green" || type === "blue") {
+			numAlchemicals.forEach((alchemical, i) => {
+				if (alchemical[type].sign === sign) return;
+				col1[i] = "X";
+				col2[i] = "X";
+			});
+		}
+
 		setContents([
 			...contents.map((col, i) => {
 				if (i !== x - 1 && i !== y - 1)
-					return col.map((cell, j) => ["not dis" + j]);
-				return col.map((cell, j) => {
-					return ["dis" + j];
-				});
+					return col.map((cell, j) => {
+						if (i === x - 1) return cell || col1[j];
+						if (i === y - 1) return cell || col2[j];
+					});
+				return col;
 			}),
 		]);
 		console.log(contents);
