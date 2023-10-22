@@ -1,25 +1,20 @@
 import React from "react";
+import Cell from "./Cell";
 
-const Column = ({  key: i, len, names, numAlchemicals }) => {
+const Column = ({ key: i, len, names, numAlchemicals }) => {
 	return (
 		<div
 			key={i === 0 ? "alchemicals" : i === len + 1 ? "pad" : names[i - 1]}
-            className="column"
+			className="column"
 		>
 			{(() => {
+				const cells = [];
 				for (let j = 0; j < len; j++) {
-					return i === 0
-						? (() => {
-								return <div key={j}></div>;
-						  })()
-						: i === len + 1
-						? () => {
-								return <div key={names[i - 1] + j}></div>;
-						  }
-						: (() => {
-								return <div key={names[i - 1] + j}></div>;
-						  })();
+					cells.push(
+						<Cell col={i} row={j} content={numAlchemicals[j - 1]} />
+					);
 				}
+                return cells;
 			})()}
 		</div>
 	);

@@ -5,9 +5,19 @@
   text-align: center;
 }
 
+.board {
+    display: flex;
+
+}
+
 .column {
-    width: 2rem;
-    border: 1px darkgrey;
+    width: 4rem;
+    border: 1px grey solid;
+}
+.cell {
+    height: 4rem;
+    width: 100%;
+    border: 1px grey solid;
 }
 
 .logo {

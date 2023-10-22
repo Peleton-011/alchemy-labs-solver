@@ -7,7 +7,7 @@ const Board = ({ alchemicals }) => {
 	const names = alchemicals.names;
 	const numAlchemicals = alchemicals.nums;
 	return (
-		<div>
+		<div className="board">
 			{(() => {
 				const cols = [];
 				for (let i = 0; i < len + 2; i++) {
