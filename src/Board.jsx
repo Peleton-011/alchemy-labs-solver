@@ -20,7 +20,26 @@ const Board = ({ alchemicals }) => {
 
 	const [contents, setContents] = useState(emptyContent);
 
-    const potionOnBlur = (e, x, y) => console.log(e.target.textContent, " ", x, ", ", y);
+	const potionOnBlur = (e, x, y) => {
+		const content = e.target.textContent;
+		const type =
+			content === ""
+				? null
+				: content.includes("r") || content.includes("R")
+				? "red"
+				: content.includes("g") || content.includes("G")
+				? "green"
+				: content.includes("n") || content.includes("N")
+				? "neutral"
+				: "blue";
+
+		const sign = !["red", "green", "blue"].includes(type)
+			? null
+			: content.includes("-")
+			? -1
+			: 1;
+		console.log(e.target.textContent, " ", x, ", ", y, " ", type, " ", sign);
+	};
 
 	return (
 		<div className="board-wrapper">
@@ -48,7 +67,7 @@ const Board = ({ alchemicals }) => {
 				})()}
 			</div>
 
-			<PotionBoard len={len } onblur={potionOnBlur} />
+			<PotionBoard len={len} onblur={potionOnBlur} />
 		</div>
 	);
 };
