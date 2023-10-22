@@ -11,7 +11,7 @@ const Column = ({ col: i, len, name, contents }) => {
 				const cells = [];
 				for (let j = 0; j < len + 1; j++) {
 					cells.push(
-						<Cell col={i} row={j} content={j === 0 && i !== 0 ? name : contents[j - 1]} />
+						<Cell key = {j} col={i} row={j} content={j === 0 && i !== 0 ? name : contents[j - 1]} />
 					);
 				}
                 return cells;

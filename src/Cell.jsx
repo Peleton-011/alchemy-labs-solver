@@ -16,11 +16,7 @@ const Cell = ({ col, row, content }) => {
 				</div>
 			</div>
 		);
-	return (
-		<div className="cell">
-			{typeof content !== "object" ? content : "idk"}
-		</div>
-	);
+	return <div className="cell">{content}</div>;
 };
 
 export default Cell;

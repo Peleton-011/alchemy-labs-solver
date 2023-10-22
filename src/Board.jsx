@@ -29,7 +29,7 @@ const Board = ({ alchemicals }) => {
 							key={i}
                             col = {i}
 							len={len}
-							name={names[i]}
+							name={names[i - 1]}
 							contents={
 								i === 0 ? numAlchemicals : i === len + 1 ? emptyContent[0] :  contents[i - 1]
 							}
