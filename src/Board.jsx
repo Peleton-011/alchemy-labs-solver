@@ -20,6 +20,8 @@ const Board = ({ alchemicals }) => {
 
 	const [contents, setContents] = useState(emptyContent);
 
+    const potionOnBlur = (e, x, y) => console.log(e.target.textContent, " ", x, ", ", y);
+
 	return (
 		<div className="board-wrapper">
 			<div className="board">
@@ -46,7 +48,7 @@ const Board = ({ alchemicals }) => {
 				})()}
 			</div>
 
-			<PotionBoard len={len} />
+			<PotionBoard len={len } onblur={potionOnBlur} />
 		</div>
 	);
 };
