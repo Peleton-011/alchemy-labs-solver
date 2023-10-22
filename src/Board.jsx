@@ -35,10 +35,10 @@ const Board = ({ alchemicals }) => {
 
 		setContents([
 			...contents.map((col, i) => {
-				if (i !== x - 1 && i !== y - 1)
+				if (i === x - 1 || i === y - 1)
 					return col.map((cell, j) => {
 						if (i === x - 1) return cell || col1[j];
-						if (i === y - 1) return cell || col2[j];
+						return cell || col2[j];
 					});
 				return col;
 			}),
