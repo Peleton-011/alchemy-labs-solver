@@ -1,5 +1,6 @@
 import React from "react";
 import Column from "./Column";
+import PotionBoard from "./PotionBoard";
 import { useState } from "react";
 
 const Board = ({ alchemicals }) => {
@@ -20,24 +21,32 @@ const Board = ({ alchemicals }) => {
 	const [contents, setContents] = useState(emptyContent);
 
 	return (
-		<div className="board">
-			{(() => {
-				const cols = [];
-				for (let i = 0; i < len + 2; i++) {
-					cols.push(
-						<Column
-							key={i}
-                            col = {i}
-							len={len}
-							name={names[i - 1]}
-							contents={
-								i === 0 ? numAlchemicals : i === len + 1 ? emptyContent[0] :  contents[i - 1]
-							}
-						/>
-					);
-				}
-				return cols;
-			})()}
+		<div className="board-wrapper">
+			<div className="board">
+				{(() => {
+					const cols = [];
+					for (let i = 0; i < len + 2; i++) {
+						cols.push(
+							<Column
+								key={i}
+								col={i}
+								len={len}
+								name={names[i - 1]}
+								contents={
+									i === 0
+										? numAlchemicals
+										: i === len + 1
+										? emptyContent[0]
+										: contents[i - 1]
+								}
+							/>
+						);
+					}
+					return cols;
+				})()}
+			</div>
+
+			<PotionBoard len={len} />
 		</div>
 	);
 };

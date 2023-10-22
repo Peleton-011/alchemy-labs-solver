@@ -4,6 +4,10 @@
 	padding: 2rem;
 	text-align: center;
 }
+.board-wrapper {
+    display: flex;
+    flex-direction: column;
+}
 
 .board {
 	display: flex;
@@ -31,6 +35,25 @@
 	width: auto;
 	height: 100%;
 }
+
+.potion-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.potion-row {
+    display: flex;
+}
+
+.potion-row > div {
+    border-radius: 50%;
+    border: 1px grey solid;
+    width: 4rem;
+    height: 4rem;
+}
+
 
 
 .column:last-child {
