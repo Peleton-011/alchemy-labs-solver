@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+.column {
+    width: 2rem;
+    border: 1px darkgrey;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
