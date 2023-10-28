@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Alchemicals from "./Alchemicals";
-import Board from "./Board";
+import Board from "./components/Board";
 
 function App() {
 	const [count, setCount] = useState(0);
